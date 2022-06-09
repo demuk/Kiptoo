@@ -1,10 +1,10 @@
 import os
 from flask import Flask, render_template, request, redirect, url_for
 from flask_mail import Message, Mail
-from whitenoise import WhiteNoise
+
 
 app = Flask(__name__)
-app.wsgi_app = WhiteNoise(app.wsgi_app, root="static/")
+
 
 app.config.update(DEBUG=True, MAIL_SERVER='smtp.gmail.com',
                   MAIL_PORT=587, MAIL_USE_SSL=False, MAIL_USE_TLS=True, MAIL_USERNAME='kdennsmutai@gmail.com',
