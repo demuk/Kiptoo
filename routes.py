@@ -6,9 +6,18 @@ from flask_mail import Message, Mail
 app = Flask(__name__)
 
 
-app.config.update(DEBUG=True, MAIL_SERVER='smtp.gmail.com',
-                  MAIL_PORT=587, MAIL_USE_SSL=False, MAIL_USE_TLS=True, MAIL_USERNAME='kdennsmutai@gmail.com',
-                  MAIL_PASSWORD="KIPTOODENNIS123")
+# app.config.update(DEBUG=True, MAIL_SERVER='smtp.gmail.com',
+#                   MAIL_PORT=587, MAIL_USE_SSL=False, MAIL_USE_TLS=True, MAIL_USERNAME='kdennsmutai@gmail.com',
+#                   MAIL_PASSWORD="KIPTOODENNIS123")
+# mail = Mail(app)
+
+app = Flask(__name__)
+app.config['SECRET_KEY'] = 'top-secret!'
+app.config['MAIL_SERVER'] = 'smtp.office365.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USERNAME'] = 'mtydnys@outlook.com'
+app.config['MAIL_PASSWORD'] = 'KIPTOODENNIS123'
 mail = Mail(app)
 
 
@@ -65,8 +74,8 @@ def contact():
         email = request.form.get('email')
         subject = request.form.get('subject')
         message = request.form.get('message')
-        sender = ['kdennsmutai@gmail.com']
-        recipients = ['kdennsmutai@gmail.com']
+        sender = 'mtydnys@outlook.com'
+        recipients = ['mtydnys@outlook.com']
         msg = Message(body=f"Name: {name}\n EMail: {email}\n Subject:{subject}\n Message:{message}",
                       recipients=recipients, sender=sender)
         mail.send(msg)
