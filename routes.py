@@ -65,7 +65,7 @@ def contact():
         email = request.form.get('email')
         subject = request.form.get('subject')
         message = request.form.get('message')
-        sender = email
+        sender = ['kdennsmutai@gmail.com']
         recipients = ['kdennsmutai@gmail.com']
         msg = Message(body=f"Name: {name}\n EMail: {email}\n Subject:{subject}\n Message:{message}",
                       recipients=recipients, sender=sender)
