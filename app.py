@@ -1,7 +1,9 @@
+from fileinput import filename
 import os
-from flask import Flask, render_template, request, redirect, url_for
+import os.path
+import logging
+from flask import Flask, render_template, request, redirect, url_for, send_from_directory
 from flask_mail import Message, Mail
-import uuid
 
 
 app = Flask(__name__)
@@ -26,6 +28,7 @@ app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USERNAME'] = 'apikey'
 app.config['MAIL_PASSWORD'] = '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'
 app.config['MAIL_DEFAULT_SENDER'] = os.environ.get('MAIL_DEFAULT_SENDER')
+UPLOAD_FOLDER = os.path.join(os.getcwd(), 'static')
 mail = Mail(app)
 
 
@@ -34,7 +37,7 @@ mail = Mail(app)
 @app.route('/home')
 @app.route('/')
 def home():
-    return render_template('home.html',id=uuid.uuid4())
+    return render_template('home.html',)
 
 
 @app.route('/policy')
@@ -82,6 +85,15 @@ def thankyou():
 @app.route('/skills')
 def skills():
     return render_template('skills.html')
+
+@app.route('/download/<path:filename>', methods=['GET'])
+def download(filename):
+    """Download a file."""
+    logging.info('Downloading file= [%s]', filename)
+    logging.info(app.root_path)
+    full_path = os.path.join(app.root_path, UPLOAD_FOLDER)
+    logging.info(full_path)
+    return send_from_directory(full_path, filename, as_attachment=True)
 
 
 @app.route('/contact', methods=['GET', 'POST'])
