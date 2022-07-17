@@ -36,7 +36,7 @@
             <li><a href="{{url_for('home')}}">Home</a></li>
             <li><a href="{{url_for('about')}}">About Me</a></li>
             <li><a href="{{url_for('projects')}}">Projects</a></li>
-            <li><a href="{{url_for('projects')}}">Skills</a></li>
+            <li><a href="{{url_for('skills')}}">Skills</a></li>
             <li class="active"><a href="{{url_for('contact')}}">Contact</a></li>
           </ul>
         </div>
@@ -98,9 +98,9 @@
               I am currently working on freelance projects, collaborations and interested in part-time
               and full-time opportunities.
             </p>
-            <!--
-            <p><a href="#" class="readmore">Download my CV</a></p>
-            -->
+            
+            <p><a href="{{url_for('download', filename='kiptoodenniscv.pdf')}}" class="readmore">Download my CV</a></p>
+           
           </div>
 
         </div>
