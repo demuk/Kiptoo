@@ -9,8 +9,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{url_for('static', filename='favicon.png' )}}" rel="icon">
-  <link href="static/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="{{url_for('static', filename='k-icon.png' )}}" rel="icon">
+  <link href="static/img/k-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=https://fonts.googleapis.com/css?family=Inconsolata:400,500,600,700|Raleway:400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -71,7 +71,7 @@
         <div class="row mb-5 align-items-center">
           <div class="col-md-12 col-lg-6 mb-4 mb-lg-0" data-aos="fade-up">
             <h2>Hello, I'm Kiptoo Dennis</h2>
-            <p class="mb-0">BackEnd Software Developer</p>
+            <p class="mb-0">FullStack Developer</p>
           </div>
           <div class="col-md-12 col-lg-6 text-start text-lg-end" data-aos="fade-up" data-aos-delay="100">
             <div id="filters" class="filters">
@@ -79,7 +79,7 @@
               <a href="#" data-filter=".web">Ecommerce</a>
               <a href="#" data-filter=".design">Portfolio</a>
               <a href="#" data-filter=".branding">Blog</a>
-              <a href="#" data-filter=".photography">Library Management</a>
+              <a href="#" data-filter=".photography">System Management</a>
             </div>
           </div>
         </div>
@@ -90,25 +90,36 @@
                 <h3>KapsuChai</h3>
                 <span>Ecommerce</span>
               </div>
-              <img class="img-fluid" src="static/img/shop.jpg">
+              <img class="img-fluid" src="{{ url_for('static', filename='img/shop.jpg') }}">
             </a>
           </div>
           <div class="item photography col-sm-6 col-md-4 col-lg-4 mb-4">
-            <a href="{{url_for('darthorama')}}" class="item-wrap fancybox">
+            <a href="{{url_for('bookorama')}}" class="item-wrap fancybox">
               <div class="work-info">
                 <h3>Book Orama</h3>
                 <span>Library Management</span>
               </div>
-              <img class="img-fluid" src="static/img/blog.jpg">
+              <img class="img-fluid" src="{{ url_for('static', filename='img/bookorama.JPG') }}">
             </a>
           </div>
+
+          <div class="item photography col-sm-6 col-md-4 col-lg-4 mb-4">
+            <a href="{{url_for('pointofsale')}}" class="item-wrap fancybox">
+              <div class="work-info">
+                <h3>Point Of Sale</h3>
+                <span>Inventory Management</span>
+              </div>
+              <img class="img-fluid" src="{{ url_for('static', filename='img/pointofsale.png') }}">
+            </a>
+          </div>
+
           <div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">
             <a href="{{url_for('darthorama')}}" class="item-wrap fancybox">
               <div class="work-info">
                 <h3>Darth Orama</h3>
                 <span>Blog</span>
               </div>
-              <img class="img-fluid" src="static/img/blog.jpg">
+              <img class="img-fluid" src="{{ url_for('static', filename='img/blog.jpg') }}">
             </a>
           </div>
           <div class="item design col-sm-6 col-md-4 col-lg-4 mb-4">
@@ -117,7 +128,7 @@
                 <h3>Kiptoo</h3>
                 <span>Portfolio</span>
               </div>
-              <img class="img-fluid" src="static/img/portfolio.jpg">
+              <img class="img-fluid" src="{{ url_for('static', filename='img/portfolio.jpg') }}">
             </a>
           </div>
         </div>
